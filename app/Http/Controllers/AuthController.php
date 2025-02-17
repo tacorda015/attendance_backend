@@ -61,8 +61,7 @@ class AuthController extends Controller
                 // Authenticate the token to get the user
                 $user = JWTAuth::parseToken()->authenticate();
 
-                // Log the user's first name (f_name)
-                Log::info($user->f_name . ' ' . $user->l_name . ': Logout');
+                Log::info($user->first_name . ' ' . $user->last_name . ': Logout');
             } catch (JWTException $e) {
                 return response()->json(['error' => 'Token expired or invalid'], 401);
             }
